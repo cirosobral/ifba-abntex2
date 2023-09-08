@@ -1,0 +1,277 @@
+%% Customizações do abnTeX2 (https://github.com/abntex/abntex2) para o Instituto Federal de Educação, Ciência e Tecnologia da Bahia - Campus Jacobina
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Ciro Sobral, cirosobral@ifba.edu.br
+%%
+%% Further information about abnTeX2 are available on https://github.com/abntex/abntex2
+%%
+
+% ---
+% INICIO DAS CUSTOMIZACOES PARA O IFBA JACOBINA
+% ---
+
+\ProvidesPackage{abntex2-ifba-jacobina}[2020/05/06 Customizacao do abnTeX2 para o IFBA Jacobina]
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Atualização trazida pela NBR 6023:2018
+% ---
+\@ifpackageloaded{url}{%
+\def\UrlLeft{}
+\def\UrlRight{}
+}
+% ---
+
+% ---
+% Configurações do pacote backref
+% ---
+\@ifpackageloaded{backref}{%
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+} 
+% ---
+
+\setulmarginsandblock{3cm}{2cm}{*}
+
+% Comandos de dados - campus
+\providecommand{\imprimircampus}{}
+\newcommand{\campus}[1]{\renewcommand{\imprimircampus}{#1}}
+
+% Comandos de dados - curso
+\providecommand{\imprimircurso}{}
+\newcommand{\curso}[1]{\renewcommand{\imprimircurso}{#1}}
+
+% Comandos de dados - grau
+\providecommand{\imprimirgrau}{}
+\newcommand{\grau}[1]{\renewcommand{\imprimirgrau}{#1}}
+
+% Comandos de dados - orientador
+\providecommand{\imprimirorientadorPronome}{}
+\renewcommand{\orientador}[2][Orientador]%
+  {\renewcommand{\imprimirorientadorRotulo}{#1}
+   \renewcommand{\imprimirorientador}{#2}
+   \renewcommand{\imprimirorientadorPronome}{Prof.}
+  }%
+
+% Comandos de dados - coorientador
+\providecommand{\imprimircoorientadorPronome}{}
+\renewcommand{\coorientador}[2][Coorientador]%
+  {\renewcommand{\imprimircoorientadorRotulo}{#1}
+   \renewcommand{\imprimircoorientador}{#2}
+   \renewcommand{\imprimircoorientadorPronome}{Prof.}
+  }%
+  
+% Comandos de dados - orientadora
+\newcommand{\orientadora}[2][Orientadora]%
+  {\renewcommand{\imprimirorientadorRotulo}{#1}
+   \renewcommand{\imprimirorientador}{#2}
+   \renewcommand{\imprimirorientadorPronome}{Profª}
+  }%
+
+% Comandos de dados - coorientadora
+\newcommand{\coorientadora}[2][Coorientadora]%
+  {\renewcommand{\imprimircoorientadorRotulo}{#1}
+   \renewcommand{\imprimircoorientador}{#2}
+   \renewcommand{\imprimircoorientadorPronome}{Profª}
+  }%
+
+% Comandos de dados - coordenador
+\providecommand{\imprimircoordenadorRotulo}{}
+\providecommand{\imprimircoordenador}{}
+\newcommand{\coordenador}[2][Coordenador]
+  {\renewcommand{\imprimircoordenadorRotulo}{#1}
+   \renewcommand{\imprimircoordenador}{#2}
+  }
+
+% Comandos de dados - coordenadora
+\newcommand{\coordenadora}[2][Coordenadora]%
+  {\renewcommand{\imprimircoordenadorRotulo}{#1}
+   \renewcommand{\imprimircoordenador}{#2}
+  }%
+
+% Comandos de dados - reitor
+\providecommand{\imprimirreitorRotulo}{}
+\providecommand{\imprimirreitor}{}
+\newcommand{\reitor}[2][Reitor]
+  {\renewcommand{\imprimirreitorRotulo}{#1}
+   \renewcommand{\imprimirreitor}{#2}
+  }
+
+% Comandos de dados - reitora
+\newcommand{\reitora}[2][Reitora]%
+  {\renewcommand{\imprimirreitorRotulo}{#1}
+   \renewcommand{\imprimirreitor}{#2}
+  }%
+
+% Comandos de dados - diretorgeral
+\providecommand{\imprimirdiretorgeralRotulo}{}
+\providecommand{\imprimirdiretorgeral}{}
+\newcommand{\diretorgeral}[2][Diretor Geral]
+  {\renewcommand{\imprimirdiretorgeralRotulo}{#1}
+   \renewcommand{\imprimirdiretorgeral}{#2}
+  }
+
+% Comandos de dados - diretorageral
+\newcommand{\diretorageral}[2][Diretora Geral]%
+  {\renewcommand{\imprimirdiretorgeralRotulo}{#1}
+   \renewcommand{\imprimirdiretorgeral}{#2}
+  }%
+
+% Comandos de dados - diretorensino
+\providecommand{\imprimirdiretorensinoRotulo}{}
+\providecommand{\imprimirdiretorensino}{}
+\newcommand{\diretorensino}[2][Diretor de Ensino]
+  {\renewcommand{\imprimirdiretorensinoRotulo}{#1}
+   \renewcommand{\imprimirdiretorensino}{#2}
+  }
+
+% Comandos de dados - diretoraensino
+\newcommand{\diretoraensino}[2][Diretora de Ensino]%
+  {\renewcommand{\imprimirdiretorensinoRotulo}{#1}
+   \renewcommand{\imprimirdiretorensino}{#2}
+  }%
+
+% Comandos de dados - diretorensinomestre
+\newcommand{\diretorensinoPronome}[1]%
+  {
+   \renewcommand{\imprimirdiretorensinoPronome}{}
+  }%
+
+
+% Comandos de dados - data de defesa
+\providecommand{\imprimirdatadefesa}{}
+\newcommand{\datadefesa}[1]{\renewcommand{\imprimirdatadefesa}{#1}}
+
+% Bloco de estilo - alteração de margem
+\def\changemargin#1#2{\list{}{\rightmargin#2\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+% Extensão do comando abntex@ifnotempty para permitir inserir valor no else
+\renewcommand{\abntex@ifnotempty}[3][\empty]{\ifthenelse{\not\equal{#2}{}}{#3}{#1}}
+
+% Define os parâmetros para instituição, campus e curso
+\instituicao{Instituto Federal de Educação, Ciência e Tecnologia da Bahia}
+\campus{Campus Jacobina}
+\curso{Técnico Integrado em Informática}
+\grau{Técnico em Informática}
+\reitora{Profª Luzia Matos Mota}
+\diretorgeral{Prof. Ricardo Alcântara Mesquita}
+\diretoraensino{MSc. Fabiana Chagas Oliveira de França}
+\coordenador{Prof. MSc. Alberto Vianna Dias da Silva}
+
+% Define o ambiente da lista de dirigentes
+\newenvironment{listadedirigentes}[1][Lista de Dirigentes]{%
+   \clearpage%
+   \PRIVATEbookmarkthis{#1}%
+   \setlength{\parindent}{0pt}
+}{\PRIVATEclearpageifneeded}   
+
+% alterando a capa
+\renewcommand{\imprimircapa}{%
+  \begin{capa}%
+    \center
+    \ABNTEXchapterfont\Large\MakeUppercase{\imprimirinstituicao}\\\MakeUppercase{\imprimircampus}\\\MakeUppercase{\imprimircurso}\vspace*{\fill}
+    
+    \begin{center}
+        \ABNTEXchapterfont\bfseries\LARGE\MakeUppercase{\imprimirtitulo}\vspace*{\fill}
+    \end{center}
+    
+    {\ABNTEXchapterfont\Large\MakeUppercase{\imprimirautor}\vspace*{\fill}}
+    
+    \large\MakeUppercase{\imprimirlocal}
+
+    \large\MakeUppercase{\imprimirdata}
+    
+  \end{capa}
+}%
+
+% folha de rosto 
+\renewcommand{\folhaderostocontent}{%
+  \begin{center}
+    \ABNTEXchapterfont\Large\MakeUppercase{\imprimirinstituicao}\\\MakeUppercase{\imprimircampus}\\\MakeUppercase{\imprimircurso}\vspace*{\fill}
+    
+    \begin{center}
+        \ABNTEXchapterfont\bfseries\LARGE\MakeUppercase{\imprimirtitulo}\vspace*{\fill}
+    \end{center}
+	
+	\begin{changemargin}{8.0cm}{0.0cm}
+	    \SingleSpacing
+        \abntex@ifnotempty{\imprimirpreambulo}{%
+            \imprimirpreambulo.
+            \par
+            {\imprimirorientadorRotulo:~\imprimirorientador\par}
+            \abntex@ifnotempty{\imprimircoorientador}{%
+                \imprimircoorientadorRotulo:~\imprimircoorientador
+            }%
+        }%
+    \end{changemargin}\vspace*{\fill}%
+    
+    {\ABNTEXchapterfont\Large\MakeUppercase{\imprimirautor}}\vspace*{\fill}
+    
+    \large\MakeUppercase{\imprimirlocal}
+
+    \large\MakeUppercase{\imprimirdata}
+    
+  \end{center}
+}%
+
+% lista de dirigentes
+\newcommand{\imprimirlistadedirigentes}{%
+    \begin{listadedirigentes}
+    \textbf{\imprimirreitorRotulo{} do \imprimirinstituicao}\\
+    \imprimirreitor
+    
+    \textbf{\imprimirdiretorgeralRotulo{} do \imprimircampus}\\
+    \imprimirdiretorgeral
+    
+    \textbf{\imprimirdiretorensinoRotulo}\\
+    \imprimirdiretorensino
+    
+    \textbf{\imprimircoordenadorRotulo{} do Curso \imprimircurso}\\
+    \imprimircoordenador
+    
+    \textbf{\imprimirorientadorRotulo}\\
+    \imprimirorientadorPronome{} \imprimirorientador
+    
+    \makeatletter
+    \abntex@ifnotempty{\imprimircoorientador}{%
+        \textbf{\imprimircoorientadorRotulo}\\
+        \imprimircoorientadorPronome{} \imprimircoorientador
+    }%
+    \makeatother
+    
+    \end{listadedirigentes}
+}
+
+% ---
+% FIM DAS CUSTOMIZACOES PARA O IFBA JACOBINA
+% ---
